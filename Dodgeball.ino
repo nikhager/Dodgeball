@@ -34,7 +34,7 @@ int movement1 = 1;                                                              
 int movement2 = 1;                                                                                 //Variable to check which direction CPU 2 is moving (0 = up, 1 = down, 2 = left, 3 = right)
 int movement3 = 1;                                                                                 //Variable to check which direction CPU 3 is moving (0 = up, 1 = down, 2 = left, 3 = right)
 int movement4 = 1;                                                                                 //Variable to check which direction CPU 4 is moving (0 = up, 1 = down, 2 = left, 3 = right)
-int stage = 8;                                                                                    //Variable to check what level the player is on
+int stage = 1;                                                                               //Variable to check what level the player is on
 int ball1on = 0;                                                                                  //Variable to check if opponent 1's ball is being thrown
 Point ball1 = {9,4};
 int ball2on = 0;                                                                                  //Variable to check if opponent 2's ball is being thrown
@@ -472,11 +472,11 @@ void loop()                                                                     
     {
       ball2on = 0;
     }
-    if (ball3.x < 0);
+    if (ball3.x < 0)
     {
       ball3on = 0;
     }
-    if (ball4.x < 0);
+    if (ball4.x < 0)
     {
       ball4on = 0;
     }
@@ -1368,91 +1368,24 @@ void Loss()
   DisplaySlate();                                                                              //Display it
   delay(1500);                                                                                //Wait a little
   CheckButtonsDown();                                                                        //If a player presses any button, restart the game
+  if (Button_A || Button_B || Button_Up || Button_Down || Button_Left || Button_Right)
   {
-    if (Button_A)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
-    if (Button_B)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
-    if (Button_Up)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
-    if (Button_Down)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
-    if (Button_Left)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
-    if (Button_Right)
-    {
-      YouLose = 0;
-      stage = 0;
-      opponent1on = 0;
-      opponent2on = 0;
-      opponent3on = 0;
-      opponent4on = 0;
-      bosson = 0;
-      hp = 5;
-      opponent1.y = 4;
-      DrawCourt();
-      DisplaySlate();
-    }
+    YouLose = 0;
+    stage = 0;                                                                               //EndStage() moves this to stage 1
+    opponent1on = 0;
+    opponent2on = 0;
+    opponent3on = 0;
+    opponent4on = 0;
+    bosson = 0;
+    ball1on = 0;                                                                             //Clear any balls still in flight
+    ball2on = 0;
+    ball3on = 0;
+    ball4on = 0;
+    ballthrow = 0;
+    hp = 5;
+    opponent1.y = 4;
+    DrawCourt();
+    DisplaySlate();
   }
 }
 
