@@ -1,0 +1,11 @@
+{
+  "name": "dodgeball-web",
+  "private": true,
+  "description": "Builds Dodgeball.ino to WebAssembly for the browser version",
+  "scripts": {
+    "build": "./build.sh"
+  },
+  "devDependencies": {
+    "binaryen": "^132.0.0"
+  }
+}
