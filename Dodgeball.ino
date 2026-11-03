@@ -131,6 +131,12 @@ void setup()                                                                    
 
 void loop()                                                                                     //Start loop
 { 
+  if (stage == 8)                                                                              //If the player beat stage 7, show the win screen (press any button to play again)
+  {
+    Win();                                                                                     //The boss stage was never finished, so stage 7 is the last stage
+    return;
+  }
+  
   if (YouLose == 1)                                                                              //If the player dies flash a big red x on the screen (press any button to restart)
   {
     Loss();
@@ -1063,6 +1069,10 @@ void EndStage()                                                                /
           {
             counter = 0;                                                      //Reset the counter
             stage++;                                                          //Go to the next stage
+      if (stage == 8)                                                                          //Stage 7 was the last one: play the victory sound
+      {
+        StartSound();
+      }
             player.x = 0;                                                     //Reset Player coords
             player.y = 4;
             delay(500);
@@ -1370,23 +1380,43 @@ void Loss()
   CheckButtonsDown();                                                                        //If a player presses any button, restart the game
   if (Button_A || Button_B || Button_Up || Button_Down || Button_Left || Button_Right)
   {
-    YouLose = 0;
-    stage = 0;                                                                               //EndStage() moves this to stage 1
-    opponent1on = 0;
-    opponent2on = 0;
-    opponent3on = 0;
-    opponent4on = 0;
-    bosson = 0;
-    ball1on = 0;                                                                             //Clear any balls still in flight
-    ball2on = 0;
-    ball3on = 0;
-    ball4on = 0;
-    ballthrow = 0;
-    hp = 5;
-    opponent1.y = 4;
-    DrawCourt();
-    DisplaySlate();
+    ResetGame();                                                                               //Start over from stage 1
   }
+}
+
+void Win()                                                                                     //When the player beats stage 7...
+{
+  SetAuxLEDs(255);                                                                             //Light all 8 LEDs: every stage is cleared
+  ClearSlate();                                                                                //Clear the screen
+  DrawCheck();                                                                                 //Draw a big green check mark
+  DisplaySlate();                                                                              //Display it
+  CheckButtonsDown();                                                                          //Note which buttons are already held down (so mashing A at the end doesn't skip this screen)
+  delay(2000);                                                                                 //Wait a little
+  CheckButtonsPress();                                                                         //If a player presses a new button, play again
+  if (Button_A || Button_B || Button_Up || Button_Down || Button_Left || Button_Right)
+  {
+    ResetGame();
+  }
+}
+
+void ResetGame()                                                                               //Put everything back to the start of the game
+{
+  YouLose = 0;
+  stage = 0;                                                                               //EndStage() moves this to stage 1
+  opponent1on = 0;
+  opponent2on = 0;
+  opponent3on = 0;
+  opponent4on = 0;
+  bosson = 0;
+  ball1on = 0;                                                                             //Clear any balls still in flight
+  ball2on = 0;
+  ball3on = 0;
+  ball4on = 0;
+  ballthrow = 0;
+  hp = 5;
+  opponent1.y = 4;
+  DrawCourt();
+  DisplaySlate();
 }
 
 
@@ -1599,6 +1629,26 @@ void DrawX()
   DrawPx(2,5,Red);
   DrawPx(2,4,Red);
   DrawPx(3,5,Red);
+}
+
+void DrawCheck()
+{
+  DrawPx(0,3,Green);
+  DrawPx(0,4,Green);
+  DrawPx(1,2,Green);
+  DrawPx(1,3,Green);
+  DrawPx(2,1,Green);
+  DrawPx(2,2,Green);
+  DrawPx(3,2,Green);
+  DrawPx(3,3,Green);
+  DrawPx(4,3,Green);
+  DrawPx(4,4,Green);
+  DrawPx(5,4,Green);
+  DrawPx(5,5,Green);
+  DrawPx(6,5,Green);
+  DrawPx(6,6,Green);
+  DrawPx(7,6,Green);
+  DrawPx(7,7,Green);
 }
 
 void BossTitle()
