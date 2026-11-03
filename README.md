@@ -12,7 +12,9 @@ You play on the left side of the court and throw balls at computer opponents on 
 
 ## Running it
 
-Open `Dodgeball.ino` in the Arduino IDE with the MeggyJrRGB library installed and upload it to a Meggy Jr RGB.
+**In a browser:** [play it here](https://nikhager.github.io/Dodgeball/), no hardware needed. The original sketch is compiled unchanged to WebAssembly; [`web/`](web/) explains how.
+
+**On the handheld:** open `Dodgeball.ino` in the Arduino IDE with the MeggyJrRGB library installed and upload it to a Meggy Jr RGB.
 
 ## Status
 
