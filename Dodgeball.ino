@@ -22,8 +22,10 @@ Point opponent3 = {8,5};                                                        
 int hp3 = 3;                                                                                      //Set variable for opponent 3 health
 Point opponent4 = {8,2};                                                                            //Set starting point for opponent 4
 int hp4 = 3;                                                                                        //Set variable for opponent 4 health
+/* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
 Point boss = {8,1};                                                                                //Set variable for boss weak spot
 int bosshp = 3;                                                                                    //Set variable for boss health
+*/
 Point playerball = {1,4};                                                                         //Unused coordinates, but point is needed to keep track of the player's ball
 int opponent1on = 0;                                                                              //Variable to check if opponent 1 is in the stage
 int opponent2on = 0;                                                                                //Variable to check if opponent 2 is in the stage
@@ -44,11 +46,13 @@ Point ball3 = {9,5};
 int ball4on = 0;                                                                                  //Variable to check if opponent 4's ball is being thrown
 Point ball4 = {9,2};
 int YouLose = 0;                                                                                  //Variable to check if player lost
+/* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
 int BossStage = 1;                                                                                //Variable for boss's attack stages based on his hp
 int b = 7;                                                                                        //Variables for BOSS letters
 int o = 14;
 int s1 = 20;
 int s2 = 26;
+*/
 
 
 void setup()                                                                                      //Setup
@@ -449,11 +453,13 @@ void loop()                                                                     
       }
     }                            
                                 
+                                /* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
                                 //stage 8 (boss)
     if (stage == 8)                                                                              //If it's stage 8...          (boss)
     {
       SetAuxLEDs(255);                                                                            //Turn on 8 LED lights
     }         
+                                */
                                 
                                 
                                 
@@ -668,6 +674,7 @@ void loop()                                                                     
     }
     
     
+    /* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
     if (boss.x == playerball.x)                                                        //if opponent 2 is hit by the ball, decrease its hp by 1 and take the ball off the screen
     {
       if (boss.y == playerball.y)
@@ -681,6 +688,7 @@ void loop()                                                                     
     {
        BossStage++;
     }
+    */
     
     
     if (player.x == ball1.x)                                                            //if the player is hit by a ball, decrease its hp by 1 and take the ball off the screen
@@ -738,10 +746,12 @@ void loop()                                                                     
     {
       hp4 = 0;
     }
+    /* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
     if (bosshp < 0)
     {
       bosshp = 0;
     }
+    */
     if (hp < 0)
     {
       hp = 0;
@@ -893,6 +903,7 @@ void loop()                                                                     
     
     
     DrawPlayer();                                                                  //Draw the player
+    /* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
     if (stage == 8)                                                                //Draw BOSS scrolling across screen
     {
       if (counter == 0)
@@ -967,6 +978,7 @@ void loop()                                                                     
         delay(1000);
       }
     }
+    */
     DisplaySlate();                                                                //Display the slate
     delay(100);                                                                    //Wait a little
     ClearSlate();                                                                  //Clear the slate
@@ -1433,6 +1445,7 @@ void ResetGame()                                                                
                 //DRAWING
 
 
+/* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
 void Boss1()                                                              //Draw Boss Stage 1
 {
   for (int i = 0; i<8; i++)
@@ -1448,6 +1461,7 @@ void Boss1()                                                              //Draw
   DrawPx(5,6,Dark);
   DrawPx(5,7,Dark);
 }
+*/
 
 
 void Draw1()
@@ -1651,6 +1665,7 @@ void DrawCheck()
   DrawPx(7,7,Green);
 }
 
+/* BOSS STAGE (unfinished): commented out in 2026 so it isn't lost. The game now ends after stage 7.
 void BossTitle()
 {
   if (b < 8)
@@ -1826,6 +1841,7 @@ void BossTitle()
     }
   }
 }
+*/
 
 
 

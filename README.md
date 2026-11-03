@@ -18,4 +18,4 @@ You play on the left side of the court and throw balls at computer opponents on 
 
 ## Status
 
-This is kept close to the original as a record of early work. A 2026 cleanup fixed two bugs that stopped the last two opponents from throwing, removed a leftover setting that started the game at the boss, and merged duplicated restart code. The planned boss stage was never finished, so the game now ends with a win screen after stage 7 (press any button to play again). The unfinished boss code is still in the file, unused.
+This is kept close to the original as a record of early work. A 2026 cleanup fixed two bugs that stopped the last two opponents from throwing, removed a leftover setting that started the game at the boss, and merged duplicated restart code. The planned boss stage was never finished, so the game now ends with a win screen after stage 7 (press any button to play again). The unfinished boss code is kept in the file, commented out.
